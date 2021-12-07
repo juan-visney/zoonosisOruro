@@ -1,0 +1,106 @@
+<nav class="navbar navbar-expand-lg " >
+  <div class="container"position="relative">
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        
+      </ul>
+      {{#if user}}
+        {{#if (esAdministrador user)}}
+            <li class="nav-item">
+              <a href="/" class="nav-link">Inicio</a>
+            </li>
+          <li class="dropdown nav-item">
+            <a class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Registrar Empleado
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="/registroAdministrador">Administrador</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/registroOperador">Operador</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/registroEmpleado">Empleado</a>
+            </div>
+          </li>
+          <!--
+          <li class="dropdown nav-item">
+            <a class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Programar
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a href="#" class="nav-link">Programar Campaña</a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="nav-link">Programar Captura</a>
+            </div>
+          </li>
+          -->
+          <li class="dropdown nav-item">
+            <a class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reportes
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a href="/administrador/reporteMascotas" class="nav-link">Mascotas Ingresadas</a>
+              <div class="dropdown-divider"></div>
+              <a href="/administrador/reporteRechazos" class="nav-link">Adopciones Devueltas</a>
+              <div class="dropdown-divider"></div>
+              <a href="/administrador/reporteGenero" class="nav-link">Mascotas por Genero</a>
+            </div>
+          </li>
+        <li class="nav-item">
+          <a href="/adoptados" class="nav-link">Adoptados</a>
+        </li>
+
+          <li class="nav-item">
+            <a href="/administrador/listarPersonal" class="nav-link">Empleados</a>
+          </li>
+          <li class="nav-item">
+            <a href="/administrador/campania" class="nav-link">Campañas</a>
+          </li>
+          <li class="nav-item">
+            <a href="/salir" class="nav-link">Salir</a>
+          </li>
+        {{/if}}
+        {{#if (esOperador user)}}
+          
+          <li class="nav-item">
+            <a href="/" class="nav-link">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a href="/verMascotas" class="nav-link">Adopcion</a>
+          </li>
+          <li class="nav-item">
+            <a href="/operador/registrarMascota" class="nav-link">Registrar Mascota</a>
+          </li>
+          <li class="nav-item">
+            <a href="/adopcion/pendientes" class="nav-link">Pendientes</a>
+          </li>
+        <li class="nav-item">
+          <a href="/adoptados" class="nav-link">Adoptados</a>
+        </li>
+          <li class="nav-item">
+            <a href="/salir" class="nav-link">Salir</a>
+          </li>
+
+        {{/if}}
+      {{else}}
+        <li class="nav-item">
+          <a href="/" class="nav-link">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Campañas</a>
+        </li>
+        <li class="nav-item">
+          <a href="/verMascotas" class="nav-link">Adopcion</a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="/adoptados" class="nav-link">Adoptados</a>
+        </li>
+      {{/if}}
+      
+    </div>
+  </div>
+</nav>

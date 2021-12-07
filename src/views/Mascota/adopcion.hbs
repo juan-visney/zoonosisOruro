@@ -1,0 +1,103 @@
+
+<div class="container">
+    <div class="row row-cols-2">
+      <div class="card-group col-12 my-4 mx-2"> 
+        <div class="card mb-4 ">
+          <div class="px-2 py-2 text-center">
+              <img class="imagenMascota  card-img-top border-irregular" 
+              src="/img/mascotas/{{foto}}" alt="Card image cap">
+          </div>
+          <div class="card-body">
+            <p class="card-text"> <strong>Sexo:</strong> {{sexo}} </p>
+            <p class="card-text"> <strong>Edad:</strong> {{edad}} </p>
+            <p class="card-text"> <strong>Color:</strong> {{color}} </p>
+            <p class="card-text"> <strong>Fecha de Ingreso:</strong> {{timeago fechaIngreso}} </p>
+          </div>
+        </div>
+<!-- Registro de Adoptante -->
+        <div class="card mb-4 ">
+          <div class="card-body">
+            <h5 class="card-title">El Adoptante debe registrar sus datos</h5>
+            <form action="/adopcion/solicitud/{{idMascota}}" method="POST" name="f1">
+                <div class="row">
+                    <!-- Nombre -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fas fa-file-signature"></i>
+                            </span>
+                        </div>
+                        <input required id="nombre" type="text" name="nombre" placeholder="Nombre completo" class="form-control bg-white border-left-0 border-md">
+                    </div>            
+                    <!-- Celular -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                               <i class="fas fa-phone"></i>
+                            </span>
+                        </div>
+                        <input required id="celular" type="text" name="celular" placeholder="Numero de Celular" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <!-- Direccion -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </span>
+                        </div>
+                        <input required id="direccion" type="text" name="direccion" placeholder="Direccion" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <!-- Mapa -->
+                    <div class="input-group col-lg-12 mb-4"> 
+                        <div id="map"></div>
+                        <input type="hidden" name="latitud">
+                        <input type="hidden" name="longitud">
+                        
+                        <script>
+                            var map = L.map("map").setView([-17.9647, -67.106], 17);
+                            
+                            
+                            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            }).addTo(map);
+                            map.on("contextmenu", function (event) {
+                                L.marker(event.latlng).addTo(map);
+                                
+                                const {lat, lng} = event.target.getCenter();
+                                document.f1.latitud.value = lat
+                                document.f1.longitud.value = lng
+
+                            });
+                        </script>
+                    </div> 
+                     <!-- Foto Carnet -->
+                    <form action="/registroBusiness" method="post" enctype="multipart/form-data">
+                        <div class="input-group col-lg-12 mb-4 " >
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fas fa-camera-retro"></i>
+                                    <div>
+                                        <label class="mx-2">Ingrese Fotografia de su carnet:</label>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <input type="file" id="carnet" name="carnet">
+                                    </div>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Submit Button -->
+                    <div class="form-group col-lg-12 mx-auto mb-0">
+                        <button class="btn btn-primary btn-block py-2">
+                            <span class="font-weight-bold">Adoptar</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

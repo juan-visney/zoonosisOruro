@@ -1,0 +1,29 @@
+<div class="row mx-3 my-3 p-4"> 
+  <table class="table table-striped">
+    <thead>
+      <tr class="table-success"> 
+        <th scope="col">Nombre Completo</th>
+        <th scope="col">C.I.</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each usuario}}
+      <tr>
+        <td >{{nombre}}</td>
+        <td >{{ci}}</td>
+        <td >{{celular}}</td>
+        <td >{{cargo}}</td>
+        <td >
+          <a href="/administrador/modificarPersonal/{{idUsuario}}" class="edit" data-toggle="modal tooltip" data-placement="top" title="Modificar Usuario" > <i class="fas fa-user-edit px-3" style="color: rgb(199, 199, 23);"></i> </a>
+					<a href="/administrador/darBaja/{{idUsuario}}" class="delete" data-toggle="modal tooltip" data-placement="top" title="Dar de baja Usuario"> <i class="fas fa-user-slash px-3"  style="color: red;"></i> </a>
+
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+

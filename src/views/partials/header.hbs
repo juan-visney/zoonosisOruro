@@ -1,0 +1,61 @@
+<header class="cabecera">
+	<div class="logo"><img src="/img/general/logo.jpg"></div>
+  <!--<span class="site-heading-lower">ZOONOSIS-ORURO</span>-->
+  <div class="titulo"><h1>ZOONOSIS-ORURO</h1></div>
+	<div class="ubicacion"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7592.19099060848!2d-67.13647547145128!3d-17.927699357631965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93e2bbc29ad9932d%3A0x34d4cafaa9a872b9!2sZoonosis%20Oruro!5e0!3m2!1ses!2sbo!4v1618423305094!5m2!1ses!2sbo"  style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+	{{#if user}}
+      {{else}}
+        <div class="ingresar"> <img src="/img/general/usuario.png">
+        <a href="#miModal" class="btn " data-toggle="modal" data-target="#miModal"><i class="fas fa-user-plus"></i> Ingresar</a>
+        </div>        
+    {{/if}}
+</header>
+
+<div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1>Ingreso</h1>
+			</div>
+			<div class="modal-body">
+        <div class="modal-body col-12 text-center">
+          <div class="col-md-7 col-lg-12 ml-auto">
+            <form action="/login" method="POST">
+              <div class="row">
+                <div class="col-lg-12 mb-4">
+                  <div class="titulo-login text-center">
+                    
+                      </div>
+                        </div>
+                          <!-- cuenta -->
+                          <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-user text-muted"></i>
+                              </span>
+                            </div>
+                            <input id="cuenta" type="text" name="cuenta" placeholder="Nombre de Cuenta" class="form-control bg-white border-left-0 border-md">
+                          </div>
+                          <!-- clave -->
+                          <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-lock text-muted"></i>
+                              </span>
+                            </div>
+                            <input id="clave" type="password" name="clave" placeholder="Contraseña" class="form-control bg-white border-left-0 border-md">
+                          </div>
+                          <!-- Submit Button -->
+                          <div class="form-group col-lg-12 mx-auto mb-0">
+                            <button class="btn btn-primary btn-block py-2">
+                              <span class="font-weight-bold">Ingresar</span>
+                            </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>

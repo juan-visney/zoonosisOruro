@@ -1,0 +1,67 @@
+<div class="row mx-3 my-3 p-4" name="t1"> 
+  <div class="col-8">
+    <table class="table table-striped" >
+      <thead>
+        <tr class="table-success"> 
+          <th scope="col">Adoptante</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Foto Mascota</th>
+          <th scope="col">Estado Adopcion</th>
+          <th scope="col">Fecha Adopcion</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each adopcion}}
+        <tr>
+          <td >{{nombre}}</td>
+          <td>
+            {{direccion}}
+            
+          </td>
+          <td >{{celular}}</td>
+          <td >
+              <div class="px-2 py-2 text-center">
+                <img class="imagenPendiente  card-img-top" 
+                src="/img/mascotas/{{foto}}" alt="Card image cap">
+            </div>
+          </td>
+          <td >{{estado}}</td>
+          <td >{{timeago fechaAdopcion}}</td>
+          <td >
+            <a href="/adopcion/entrega/{{idAdopcion}}" class="entregar" data-toggle="modal tooltip" data-placement="top" title="Entregar Adopcion" > <i class="far fa-check-circle" style="color: rgb(11, 172, 38);"></i> </a>
+        <a href="/adopcion/cancelar/{{idAdopcion}}" class="delete" data-toggle="modal tooltip" data-placement="top" title="Cancelar Adopcion"> <i class="far fa-window-close " style="color: red;"></i></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div class="col-4">
+    <div id="map"></div>            
+      <script>
+      var map = L.map("map", {
+      maxZoom: 18,
+      minZoom: 12
+      }).setView([-17.9647, -67.106], 12);
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+      
+      </script>
+  </div>
+  
+  {{#each adopcion}}
+    <script>  
+      console.log({{latitud}}, " ", {{longitud}})
+      var posicion = L.marker([{{latitud}}, {{longitud}}], {
+        title: "Direccion",
+        draggable:false,
+        opacity: 1
+      }).bindPopup("{{nombre}}: {{direccion}}").addTo(map)
+    </script>
+  {{/each}}
+    
+</div>
+

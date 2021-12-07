@@ -1,0 +1,181 @@
+*{
+	margin: 0;
+}
+body{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.imagenMascota{
+	border-radius: 155px 45px 225px 75px/15px 125px 15px 155px;
+    border-top-left-radius: 155px 15px;
+    border-top-right-radius: 45px 125px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius: 75px 155px;
+	height: 250px;
+	width: 250px;
+}
+
+.imagenPendiente{
+	height: 150px;
+	width: 150px;
+}
+.cabecera{
+	width: 100%;
+	height: 150px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #ddffbc;
+}
+.cabecera .logo img{
+	width: 100px;
+	height: auto;
+}
+.cabecera h1{
+	width: 100%;
+	height: auto;
+	padding-top: 15px;
+	padding-bottom: 2px;
+	padding-left: 20px;
+	font-size: 60px;
+}
+.cabecera iframe{
+	width: 100%;
+	height: auto;
+}
+.cabecera .ingresar{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.cabecera .ingresar img{
+	width: 80px;
+	height: 80px;
+}
+nav{
+	width: 100%;
+	height: 70px;
+	margin: auto;
+	padding: 10px;
+	display: flex;
+	justify-content: flex-end;
+	background-color: #91c788;
+}
+
+nav ul{
+	display: flex;	
+	justify-content: flex-end;
+	align-items: center;
+}
+
+nav li{
+	list-style-type: none;
+	padding: 10px;
+}
+
+nav li:hover{
+	background-color: #52734d;
+}
+
+nav li a{
+	text-decoration: none;
+	color: black;
+	font-size: 1.5em;
+}
+
+nav li a:hover{
+	color: white;
+}
+.inicio {
+	width: 100%;
+	height: 650px;
+	position: relative;
+}
+.inicio .d-block{
+	width: 100%;
+	height: 650px;
+	position: relative;
+
+	align-items: center;
+}
+.inicio  img{
+	width: 100%;
+	
+}
+.inicio .d-block:before{
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-color: #ddffbc;
+	position: absolute;
+	opacity: 0.7;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.avisos{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.avisos .card{
+	width: 80%;
+	height: 20%;
+	padding: 20px;
+	background-color: #feffde;
+}
+.avisos img{
+	width: 300px;
+	height: 300px;
+}
+.avisos .card-title{
+	font-family: 'Alfa Slab One', cursive;
+	font-size: 35px;
+	font-style: italic;
+	color: #184d47;
+}
+.avisos .card-text{
+	font-family: 'Alfa Slab One', cursive;
+	font-family: 'Archivo', sans-serif;
+	font-size: 25px;
+	color: #206a5d;
+}
+.avisos .card-body{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.avisos .row{
+	padding: 20px;
+}
+.avisos .columna{
+	align-items: center;
+}
+
+.border-irregular1 {
+    border-radius: 155px 45px 225px 75px/15px 125px 15px 155px;
+    border-top-left-radius: 155px 15px;
+    border-top-right-radius: 45px 125px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius: 75px 155px;
+}
+#map {
+	width: 100%;
+	height: 200px;
+	border: 1px solid black;
+}
+
+#mapGrande {
+	width: 100%;
+	height: 500px;
+	border: 1px solid black;
+}

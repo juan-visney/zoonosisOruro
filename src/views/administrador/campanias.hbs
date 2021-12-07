@@ -1,0 +1,79 @@
+<div class="row my-5">
+    <div class="col-10">
+        <div class="input-group col-lg-12 mb-4"> 
+            <div id="mapGrande"></div>            
+            <script>
+                var map = L.map("mapGrande").setView([-17.9647, -67.106], 17);     
+                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+                map.on("contextmenu", function (event) {
+                    L.marker(event.latlng).addTo(map);
+                });
+            </script>
+        </div>
+        {{#each mascotas}}
+            <script>  
+            console.log({{latitud}}, " ", {{longitud}})
+            var posicion = L.marker([{{latitud}}, {{longitud}}], {
+                title: "Datos",
+                draggable:false,
+                opacity: 1
+            }).bindPopup("<p>{{nombre}}: {{direccion}}</p>" + 
+                    "<p>{{especie}}</p>" + 
+                    "<img src= /img/mascotas/{{foto}} style=width:100px;height:100px;>").addTo(map)
+            </script>
+        {{/each}}
+    </div>
+    <div class="text-center">
+        <div style="display: none;">
+            <table id="tblData">
+                <tr class="table-success"> 
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Latitud</th>
+                    <th scope="col">Longitud</th>
+                </tr>
+                {{#each mascotas}}
+                    <tr>
+                        <td >{{nombre}}</td>
+                        <td >{{latitud}}</td>
+                        <td >{{longitud}}</td>
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="exportTableToExcel('tblData', 'datos')">Exportar Datos</button>
+        <script>
+            function exportTableToExcel(tableID, filename = ''){
+                var downloadLink;
+                var dataType = 'application/vnd.ms-excel';
+                var tableSelect = document.getElementById(tableID);
+                var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+                
+                // Specify file name
+                filename = filename?filename+'.xls':'excel_data.xls';
+                
+                // Create download link element
+                downloadLink = document.createElement("a");
+                
+                document.body.appendChild(downloadLink);
+                
+                if(navigator.msSaveOrOpenBlob){
+                    var blob = new Blob(['ufeff', tableHTML], {
+                        type: dataType
+                    });
+                    navigator.msSaveOrOpenBlob( blob, filename);
+                }else{
+                    // Create a link to the file
+                    downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+                
+                    // Setting the file name
+                    downloadLink.download = filename;
+                    
+                    //triggering the function
+                    downloadLink.click();
+                }
+            }
+        </script>
+    </div>
+</div>
